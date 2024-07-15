@@ -1,0 +1,56 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Product Matching{% endblock %}
+
+{% block content %}
+<h1>Product Matching</h1>
+
+<div class="box">
+    <div class="left">
+        <form id="barcode-form" method="POST">
+            {% csrf_token %}
+            <input type="text" name="serial_no" id="serial_no" placeholder="Scan Serial No" autocomplete="off">
+            <input type="text" name="part_no" id="part_no" placeholder="Scan Part No" autocomplete="off">
+        </form>
+    </div>
+    <div class="right"><div id="result"></div></div>
+</div>
+
+
+
+<div id="product-details" style="display: none;">
+    <h2>Product Details</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Model No</th>
+                <th>Part No</th>
+                <th>Serial No</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="product-category"></td>
+                <td id="product-model-no"></td>
+                <td id="product-part-no"></td>
+                <td id="product-serial-no"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<h2>Scanned Products</h2>
+<table id="scanned-data">
+    <thead>
+        <tr>
+            <th>Model No</th>
+            <th>Part No</th>
+            <th>Serial No</th>
+
+        </tr>
+    </thead>
+    <tbody id="scanned-products-body">
+        <!-- Scanned products will be inserted here -->
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>{% block title %}Product Matching{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>
+
+<!--This is your base template, all other HTML files extend this template hence inheriting thi template's functionality'-->
+</head>
+<body>
+    <nav>
+        <a href="{% url 'part_list' %}">View Data</a>
+        <a href="{% url 'add_part' %}">Add Data</a>
+        <a href="{% url 'match_product' %}">Product Matching</a>
+    </nav>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
